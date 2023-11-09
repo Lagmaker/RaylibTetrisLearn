@@ -27,12 +27,11 @@ Color Board::Cell::GetColor() const
 }
 
 /* Board Realizations */
-Board::Board(int screenX, int screenY, int width, int height, int cellSize, int padding)
+Board::Board(Vec2<int> screenPos, Vec2<int> widthHeight, int cellSize, int padding)
 	:
-	screenX(screenX),
-	screenY(screenY),
-	width(width),
-	height(height),
+	screenPos(screenPos),
+	width(widthHeight.GetX()),
+	height(widthHeight.GetY()),
 	cellSize(cellSize),
 	padding(padding)
 {
@@ -41,17 +40,19 @@ Board::Board(int screenX, int screenY, int width, int height, int cellSize, int 
 	cells.resize(this->width * this->height);
 }
 
-void Board::SetCell(int x, int y, Color color)
+void Board::SetCell(Vec2<int> pos, Color color)
 {
-	assert(x >= 0 && y >= 0 && x < width && y < height); // If assertion triggers : x or y is out of bounds
-	cells[y * width + x].SetColor(color);	// translate position on 2d board to 1d vector
+	assert(pos.GetX() >= 0 && pos.GetY() >= 0 && pos.GetX() < width && pos.GetY() < height); // If assertion triggers : x or y is out of bounds
+	cells[pos.GetY() * width + pos.GetX()].SetColor(color);	// translate position on 2d board to 1d vector
 }
 
-void Board::DrawCell(int x, int y) const
+void Board::DrawCell(Vec2<int> pos) const 
 {
-	assert(x >= 0 && y >= 0 && x < width && y < height); // If assertion triggers : x or y is out of bounds
-	Color c = cells[y * width + x].GetColor();
-	DrawRectangle(screenX + x * cellSize + padding, screenY + y * cellSize + padding, cellSize - padding, cellSize - padding, c);
+	assert(pos.GetX() >= 0 && pos.GetY() >= 0 && pos.GetX() < width && pos.GetY() < height); // If assertion triggers : x or y is out of bounds
+	Color c = cells[pos.GetY() * width + pos.GetX()].GetColor();
+	Vec2<int> topLeft = screenPos + padding + (pos * cellSize);
+
+	raycpp::DrawRectangle(topLeft, Vec2{ cellSize ,cellSize } - padding, c);
 }
 
 void Board::Draw() const
@@ -60,7 +61,7 @@ void Board::Draw() const
 	{
 		for (int iX = 0; iX < width; iX++)
 		{
-			DrawCell(iX, iY);
+			DrawCell({ iX, iY });
 		}
 	}
 }

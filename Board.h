@@ -1,6 +1,7 @@
 #pragma once
-#include <raylib.h>
+#include "raylibCpp.h"
 #include <vector>
+#include "Vec2.h"
 
 class Board
 {
@@ -26,11 +27,11 @@ private:
 public:
 
 	/* Special Member Functions | Board */
-	Board(int screenX, int screenY, int width, int height, int cellSize, int padding);
+	Board(Vec2<int> screenPos, Vec2<int> widthHeight, int cellSize, int padding);
 
 	/* Public Methods | Board */
-	void SetCell(int x, int y, Color color);
-	void DrawCell(int x, int y) const;
+	void SetCell(Vec2<int> pos, Color color);
+	void DrawCell(Vec2<int> pos) const;
 	void Draw() const;
 private:
 	/* Private Fields | Board */
@@ -39,8 +40,7 @@ private:
 	const int height;
 	const int cellSize;
 	const int padding; // separators between cells
-	int screenX;
-	int screenY;
+	Vec2<int> screenPos;
 
 
 };

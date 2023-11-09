@@ -137,6 +137,7 @@
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="raylibCpp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -144,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="Board.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="raylibCpp.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Vec2.h" />
   </ItemGroup>

@@ -14,7 +14,11 @@ public:
 	{}
 
 	/* Getters | Vec2 */
-	T GetX() const {return x;}
+	T GetX() const {return x};
+	T GetY() const {return y};
+
+	/* Setters | Vec2 */
+
 
 private:
 	/* Private Fields | Vec2 */

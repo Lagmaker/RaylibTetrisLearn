@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "Board.h"
 
 
 class Game
@@ -24,18 +25,21 @@ class Game
 	}
 */
 public:
-	/* Special Member Functions */
-	Game(int width, int height, std::string title);
+	/* Special Member Functions | Game */
+	Game(int width, int height, int fps, std::string title);
 	Game(const Game& other) = delete; // Tells the compiler to delete the default realization of Copy Ctor
 	Game& operator= (const Game& other) = delete; // Tells the compiler to delete the default realization of Copy Assignment
 	~Game() noexcept;
 
-	/* Public Methods */
+	/* Public Methods | Game */
 	bool GameShouldClose() const;
 	void Tick();
 private:
-	/* Private Methods */
+	/* Private Methods | Game */
 	void Update();
 	void Draw();
+
+	/* Private Fields | Game */
+	Board board;
 };
 

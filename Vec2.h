@@ -26,7 +26,7 @@ public:
 	/* Operators Overload | Vec2 */
 	bool operator== (const Vec2& rhs)
 	{
-		return (x == rhs.x && y = rhs.y);
+		return (x == rhs.x && y == rhs.y);
 	}
 	bool operator!= (const Vec2& rhs)
 	{

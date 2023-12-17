@@ -1,3 +1,5 @@
+#include <thread>
+
 #include "Game.h"
 #include "raylib.h"
 
@@ -17,8 +19,7 @@ int main(void)
         game.Tick();
     }
 
-
-    return 0;
+	return 0;
 }
 
 /* Tutorial #1 : Why we need rule of 5

@@ -40,6 +40,12 @@ private:
 	void Draw();
 
 	/* Private Fields | Game */
+	/** 
+	  @param 1. screePos // space from border of window to board
+	  @param 2. widthHeight // amount of cells in board
+	  @param 3. cellSize // param for both x,y
+	  @param 4. padding // space between cells
+	  */
 	Board board;
 };
 

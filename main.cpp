@@ -1,15 +1,13 @@
 #include <thread>
-
 #include "Game.h"
 #include "raylib.h"
-
+#include "Settings.h"
 
 int main(void)
 {
-    const int screenWidth = 800;
-    const int screenHeight = 600;
-
-    Game game{ screenWidth, screenHeight, 60, "Tetris Raylib" };
+    Game game{ settings::screenWidth,
+               settings::screenHeight, 
+               settings::fps, "Tetris Raylib" };
 
     
     //Game game2 = game;  // Coping with default ctor means that dtor will clean same memory both times. That causes crash

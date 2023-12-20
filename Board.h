@@ -32,6 +32,7 @@ public:
 	/* Public Methods | Board */
 	void SetCell(Vec2<int> pos, Color color);
 	void DrawCell(Vec2<int> pos) const;
+	void DrawBorder() const;
 	void Draw() const;
 private:
 	/* Private Fields | Board */

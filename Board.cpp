@@ -26,6 +26,11 @@ Color Board::Cell::GetColor() const
 	return color;
 }
 
+bool Board::Cell::Exists() const
+{
+	return bExists;
+}
+
 /* Board Realizations */
 Board::Board(Vec2<int> screenPos, Vec2<int> widthHeight, int cellSize, int padding)
 	:
@@ -69,8 +74,17 @@ void Board::Draw() const
 	{
 		for (int iX = 0; iX < width; iX++)
 		{
-			DrawCell({ iX, iY });
+			if(CellExists({iX,iY}))
+			{
+				DrawCell({ iX, iY });
+			}
+			
 		}
 	}
 	DrawBorder();
+}
+
+bool Board::CellExists(Vec2<int> pos) const
+{
+	return cells[pos.GetY()*width + pos.GetX()].Exists();
 }

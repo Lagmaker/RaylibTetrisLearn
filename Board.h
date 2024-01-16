@@ -18,6 +18,7 @@ private:
 
 		/* Getters | Cell*/
 		Color GetColor() const;
+		bool Exists() const;
 	private:
 		/* Private Fields | Cell */
 		bool bExists;
@@ -27,6 +28,12 @@ private:
 public:
 
 	/* Special Member Functions | Board */
+		/** 
+	  @param 1. screePos // space from border of window to board
+	  @param 2. widthHeight // amount of cells in board
+	  @param 3. cellSize // param for both x,y
+	  @param 4. padding // space between cells
+	  */
 	Board(Vec2<int> screenPos, Vec2<int> widthHeight, int cellSize, int padding);
 
 	/* Public Methods | Board */
@@ -34,6 +41,7 @@ public:
 	void DrawCell(Vec2<int> pos) const;
 	void DrawBorder() const;
 	void Draw() const;
+	bool CellExists(Vec2<int> pos) const;
 private:
 	/* Private Fields | Board */
 	std::vector<Cell> cells;

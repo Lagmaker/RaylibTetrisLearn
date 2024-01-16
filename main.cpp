@@ -7,7 +7,9 @@ int main(void)
 {
     Game game{ settings::screenWidth,
                settings::screenHeight, 
-               settings::fps, "Tetris Raylib" };
+               settings::fps,"Tetris Raylib" };
+
+    
 
     
     //Game game2 = game;  // Coping with default ctor means that dtor will clean same memory both times. That causes crash

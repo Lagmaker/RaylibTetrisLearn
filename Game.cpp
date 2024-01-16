@@ -14,13 +14,6 @@ Game::Game(int width, int height, int fps, std::string title)
 	assert(!GetWindowHandle());	// If assertion triggers : Window is already opened
 	SetTargetFPS(fps);
 	InitWindow(width, height, title.c_str());
-	for (int iY = 0; iY < 20; iY++)
-	{
-		for (int iX = 0; iX < 10; iX++)
-		{
-			board.SetCell({ iX, iY }, RED);
-		}
-	}
 
 }
 
@@ -37,6 +30,7 @@ bool Game::GameShouldClose() const	// We promise that we do not change the retur
 
 void Game::Tick()
 {
+	SetWindowTitle(TextFormat("Tetris Raylib | %d fps",GetFPS()));
 	BeginDrawing();
 	Update();
 	Draw();

@@ -1,4 +1,3 @@
-#include <thread>
 #include "Game.h"
 #include "raylib.h"
 #include "Settings.h"

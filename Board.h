@@ -39,9 +39,12 @@ public:
 	/* Public Methods | Board */
 	void SetCell(Vec2<int> pos, Color color);
 	void DrawCell(Vec2<int> pos) const;
+	void DrawCell(Vec2<int> pos, Color color) const;
 	void DrawBorder() const;
 	void Draw() const;
 	bool CellExists(Vec2<int> pos) const;
+	int GetWidth() const;
+	int GetHeight() const;
 private:
 	/* Private Fields | Board */
 	std::vector<Cell> cells;
@@ -50,6 +53,4 @@ private:
 	const int cellSize;
 	const int padding; // separators between cells
 	Vec2<int> screenPos;
-
-
 };

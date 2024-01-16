@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "Board.h"
+#include "Tetrominoes.h"
 
 
 class Game
@@ -41,5 +42,6 @@ private:
 
 	/* Private Fields | Game */
 	Board board;
+	Jay tetromino;
 };
 

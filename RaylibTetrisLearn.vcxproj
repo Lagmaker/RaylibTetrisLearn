@@ -146,6 +146,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="raylibCpp.cpp" />
+    <ClCompile Include="Tetrominoes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
@@ -153,6 +154,7 @@
     <ClInclude Include="raylibCpp.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Settings.h" />
+    <ClInclude Include="Tetrominoes.h" />
     <ClInclude Include="Vec2.h" />
   </ItemGroup>
   <ItemGroup>

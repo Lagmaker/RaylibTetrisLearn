@@ -9,12 +9,12 @@ Game::Game(int width, int height, int fps, std::string title)
 	board(settings::boardPosition,
 		  settings::boardWidthHeight,
 		  settings::cellSize,
-		  settings::padding)
+		  settings::padding),
+		 tetromino(board)
 {
 	assert(!GetWindowHandle());	// If assertion triggers : Window is already opened
 	SetTargetFPS(fps);
 	InitWindow(width, height, title.c_str());
-
 }
 
 Game::~Game() noexcept // We promise to compilator that exception is never thrown here	// If it is : std::terminate() is called
@@ -39,12 +39,23 @@ void Game::Tick()
 
 void Game::Update()
 {
+	if(IsKeyPressed(KEY_E))
+	{
+		tetromino.RotateClockwise();
+	}
+
+	if(IsKeyPressed(KEY_Q))
+	{
+		tetromino.RotateCounterClockwise();
+	}
+
 }
 
 void Game::Draw()
 {
 	ClearBackground(BLACK);
 	board.Draw();
+	tetromino.Draw();
 }
 
 
